@@ -15,8 +15,8 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.9.6")
     implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.6")
 
-    testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.5.22")
-    testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.5.22")
+    testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.5.23")
+    testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.5.23")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.0")
