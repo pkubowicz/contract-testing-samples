@@ -10,6 +10,10 @@ repositories {
     mavenCentral()
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_10
+}
+
 dependencies {
     implementation("org.apache.httpcomponents:fluent-hc:4.5.6")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.9.6")

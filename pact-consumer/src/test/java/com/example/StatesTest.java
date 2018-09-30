@@ -21,13 +21,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Disabled
 public class StatesTest {
     private SuppliesClient client;
+    private final SuppliesAnalyser analyser = new SuppliesAnalyser();
 
     @BeforeEach
     void setUp() {
         client = new SuppliesClient("http://localhost:9051");
     }
 
-    @Pact(consumer="Planner")
+    @Pact(consumer = "Planner")
     public RequestResponsePact oneSupply(PactDslWithProvider builder) {
         return builder
                 .given("one canceled and one active supply")
@@ -55,10 +56,21 @@ public class StatesTest {
     public void getsSupplies2() {
         List<Supply> received = client.getFor(LocalDate.of(2018, 12, 23));
         assertThat(received).hasSize(2);
-        assertThat(received.get(0)).hasFieldOrPropertyWithValue("canceled", true);
-        assertThat(received.get(1)).hasFieldOrPropertyWithValue("canceled", false)
-        .hasFieldOrPropertyWithValue("count", 4)
-        .hasFieldOrPropertyWithValue("totalWeight", 20);
+        assertThat(received.get(0))
+                .hasFieldOrPropertyWithValue("canceled", true);
+        assertThat(received.get(1))
+                .hasFieldOrPropertyWithValue("canceled", false)
+                .hasFieldOrPropertyWithValue("count", 4)
+                .hasFieldOrPropertyWithValue("totalWeight", 20);
+
+    }
+
+    @Test
+    @PactTestFor(pactMethod = "oneSupply")
+    public void getsSupplies3() {
+        double averageWeight = new SuppliesAnalyser().countAverageItemWeight(
+                client.getFor(LocalDate.of(2018, 12, 23)));
+        assertThat(averageWeight).isEqualTo(5.0);
 
     }
 }
