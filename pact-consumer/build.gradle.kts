@@ -23,11 +23,11 @@ dependencies {
 
     testImplementation("org.assertj:assertj-core:3.11.1")
 
-    testRuntimeOnly("ch.qos.logback:logback-classic:1.2.3")
+    testRuntimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.11.1")
 }
 
 tasks.getByName<JavaCompile>("compileJava") {
-    options.compilerArgs.add("-parameters")
+    options.compilerArgs.add("-parameters") // to be used by JSON deserialization
 }
 
 tasks.getByName<Test>("test") {
