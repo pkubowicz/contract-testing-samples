@@ -1,7 +1,6 @@
 package com.example;
 
 import au.com.dius.pact.consumer.Pact;
-import au.com.dius.pact.consumer.dsl.PactDslJsonArray;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
@@ -19,7 +18,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(PactConsumerTestExt.class)
 @PactTestFor(providerName = "Supplies", port = "9051")
-public class SuppliesContractTest {
+@Disabled
+public class StatesTest {
     private SuppliesClient client;
 
     @BeforeEach
@@ -30,6 +30,7 @@ public class SuppliesContractTest {
     @Pact(consumer="Planner")
     public RequestResponsePact oneSupply(PactDslWithProvider builder) {
         return builder
+                .given("one canceled and one active supply")
                 .uponReceiving("request for a canceled supply")
                 .path("/supplies")
                 .query("day=2018-12-23")
@@ -40,21 +41,24 @@ public class SuppliesContractTest {
                     array.object(o -> {
                         o.booleanValue("canceled", true);
                     });
+                    array.object(o -> {
+                        o.booleanValue("canceled", false);
+                        o.numberValue("count", 4);
+                        o.numberValue("totalWeight", 20);
+                    });
                 }).build())
                 .toPact();
     }
 
     @Test
     @PactTestFor(pactMethod = "oneSupply")
-    public void getsSupplies() {
-        client.getFor(LocalDate.of(2018, 12, 23));
-    }
-
-    @Test
-    @PactTestFor(pactMethod = "oneSupply")
-    @Disabled
     public void getsSupplies2() {
-        double counted = new SuppliesAnalyser().countAverageItemWeight(client.getFor(LocalDate.of(2018, 12, 23)));
-        assertThat(counted).isEqualTo(0.0d);
+        List<Supply> received = client.getFor(LocalDate.of(2018, 12, 23));
+        assertThat(received).hasSize(2);
+        assertThat(received.get(0)).hasFieldOrPropertyWithValue("canceled", true);
+        assertThat(received.get(1)).hasFieldOrPropertyWithValue("canceled", false)
+        .hasFieldOrPropertyWithValue("count", 4)
+        .hasFieldOrPropertyWithValue("totalWeight", 20);
+
     }
 }
