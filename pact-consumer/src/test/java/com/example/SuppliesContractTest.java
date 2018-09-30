@@ -31,6 +31,7 @@ public class SuppliesContractTest {
         return builder
                 .uponReceiving("request for a canceled supply")
                 .path("/supplies")
+                .query("day=2018-12-23")
                 .method("GET")
                 .willRespondWith()
                 .status(200)

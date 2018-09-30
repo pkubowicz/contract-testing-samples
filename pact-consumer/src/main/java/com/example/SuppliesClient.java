@@ -22,7 +22,7 @@ public class SuppliesClient {
     public List<Supply> getFor(LocalDate day) {
         try {
             return mapper.readValue(
-                    Request.Get(baseUrl + "/supplies").execute().returnContent().asString(),
+                    Request.Get(baseUrl + "/supplies?day=" + day).execute().returnContent().asString(),
                     new TypeReference<List<Supply>>() { }
             );
         } catch (IOException e) {
