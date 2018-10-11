@@ -13,7 +13,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.2")
     annotationProcessor("org.projectlombok:lombok:1.18.2")
 
-    runtimeOnly("ch.qos.logback:logback-classic:1.2.3")
+    runtimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.11.1")
 
     testImplementation("au.com.dius:pact-jvm-provider-junit_2.12:3.5.23")
     testRuntimeOnly("com.example:planner-pact:1.0.0-SNAPSHOT")
