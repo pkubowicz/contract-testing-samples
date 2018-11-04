@@ -11,8 +11,8 @@ class SuppliesAnalyserTest {
 
     @Test
     void countsAverage() {
-        var supplies = List.of(new Supply(2, 10, false),
-                new Supply(3, 15, false));
+        var supplies = List.of(new Supply(2, 12, false),
+                new Supply(3, 13, false));
         assertThat(analyser.countAverageItemWeight(supplies))
                 .isEqualTo(5.0);
     }

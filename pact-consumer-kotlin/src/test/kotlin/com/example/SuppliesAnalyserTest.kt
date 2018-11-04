@@ -8,8 +8,8 @@ class SuppliesAnalyserTest {
 
     @Test
     fun countsAverage() {
-        val supplies = listOf(Supply(2, 10, false),
-                Supply(3, 15, false))
+        val supplies = listOf(Supply(2, 12, false),
+                Supply(3, 13, false))
         assertThat(analyser.countAverageItemWeight(supplies))
                 .isEqualTo(5.0)
     }
