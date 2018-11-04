@@ -16,14 +16,14 @@ java {
 
 dependencies {
     implementation("org.apache.httpcomponents:fluent-hc:4.5.6")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.6")
-    implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.6")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.7")
+    implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.7")
 
     testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.5.23")
     testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.5.23")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 
     testImplementation("org.assertj:assertj-core:3.11.1")
 
