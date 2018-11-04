@@ -21,7 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Disabled
 public class StatesTest {
     private SuppliesClient client;
-    private final SuppliesAnalyser analyser = new SuppliesAnalyser();
 
     @BeforeEach
     void setUp() {
