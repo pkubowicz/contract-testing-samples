@@ -53,7 +53,7 @@ public class StatesTest {
 
     @Test
     @PactTestFor(pactMethod = "oneSupply")
-    public void getsSupplies2() {
+    public void testClient() {
         List<Supply> received = client.getFor(LocalDate.of(2018, 12, 23));
         assertThat(received).hasSize(2);
         assertThat(received.get(0))
@@ -67,7 +67,7 @@ public class StatesTest {
 
     @Test
     @PactTestFor(pactMethod = "oneSupply")
-    public void getsSupplies3() {
+    public void testLogicAndClient() {
         double averageWeight = new SuppliesAnalyser().countAverageItemWeight(
                 client.getFor(LocalDate.of(2018, 12, 23)));
         assertThat(averageWeight).isEqualTo(5.0);
