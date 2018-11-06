@@ -17,7 +17,7 @@ dependencies {
 
     runtimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.11.1")
 
-    testImplementation("au.com.dius:pact-jvm-provider-junit_2.12:3.5.23")
+    testImplementation("au.com.dius:pact-jvm-provider-junit_2.12:3.5.24")
     testRuntimeOnly("com.example:planner-pact:1.0.0-SNAPSHOT")
 
     testImplementation("junit:junit:4.12")

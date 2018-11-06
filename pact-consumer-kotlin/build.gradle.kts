@@ -19,8 +19,8 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.7")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
 
-    testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.5.23")
-    testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.5.23")
+    testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.5.24")
+    testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.5.24")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
