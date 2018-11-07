@@ -16,6 +16,13 @@ class SuppliesClient(private val baseUrl: String) {
         if (response.statusLine.statusCode >= 300) {
             throw errorFor(response)
         }
+
+        return deserialize(response)
+    }
+
+    // boring stuff below
+
+    private fun deserialize(response: HttpResponse): List<Supply> {
         return mapper.readValue(
                 EntityUtils.toString(response.entity),
                 object : TypeReference<List<Supply>>() {}
