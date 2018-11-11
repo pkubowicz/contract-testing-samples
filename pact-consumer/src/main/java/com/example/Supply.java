@@ -1,11 +1,14 @@
 package com.example;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Supply {
+
     private final int count;
     private final int totalWeight;
     private final boolean canceled;
 
-    public Supply(int count, int totalWeight, boolean canceled) {
+    public Supply(@JsonProperty(required = true, value = "count") Integer count, int totalWeight, boolean canceled) {
         this.count = count;
         this.totalWeight = totalWeight;
         this.canceled = canceled;
