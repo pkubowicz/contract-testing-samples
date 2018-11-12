@@ -25,6 +25,8 @@ class SuppliesContractTest {
         client = SuppliesClient(baseUrl)
     }
 
+    // positive case
+
     @Pact(consumer = "Planner")
     fun oneSupply(builder: PactDslWithProvider): RequestResponsePact {
         return builder
@@ -34,11 +36,13 @@ class SuppliesContractTest {
                 .method("GET")
                 .willRespondWith()
                 .status(200)
-                .body(newJsonArray { array ->
-                    array.newObject { o ->
-                        o.booleanValue("canceled", true)
-                    }
-                }.build())
+                .body(
+                        newJsonArray { array ->
+                            array.newObject { o ->
+                                o.booleanValue("canceled", true)
+                            }
+                        }.build()
+                )
                 .toPact()
     }
 
@@ -47,6 +51,8 @@ class SuppliesContractTest {
     fun getsSupplies() {
         client.getFor(LocalDate.of(2018, 12, 23))
     }
+
+    // negative case
 
     @Pact(consumer = "Planner")
     fun malformedDate(builder: PactDslWithProvider): RequestResponsePact {
