@@ -39,7 +39,7 @@ class SuppliesContractTest {
                 .body(
                         newJsonArray { array ->
                             array.newObject { o ->
-                                o.booleanValue("canceled", true)
+                                o.stringValue("status", "CANCELED")
                             }
                         }.build()
                 )

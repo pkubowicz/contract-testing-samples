@@ -37,8 +37,8 @@ class ContractPerformanceTest {
                 .status(200)
                 .body(newJsonArray { array ->
                     array.newObject { o ->
-                        o.booleanValue("canceled", true)
                         o.numberType("count", 0)
+                        o.stringValue("status", "CANCELED")
                         o.numberType("totalWeight", 2*0)
                     }
                 }.build())

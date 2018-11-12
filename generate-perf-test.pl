@@ -14,8 +14,8 @@ for (my $i=0; $i<200; ++$i) {
                 .status(200)
                 .body(newJsonArray { array ->
                     array.newObject { o ->
-                        o.booleanValue("canceled", true)
                         o.numberType("count", $i)
+                        o.stringValue("status", "CANCELED")
                         o.numberType("totalWeight", 2*$i)
                     }
                 }.build())

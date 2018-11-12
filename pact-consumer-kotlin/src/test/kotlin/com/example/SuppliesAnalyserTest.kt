@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.SupplyStatus.ACTIVE
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS
@@ -15,11 +16,11 @@ class SuppliesAnalyserTest {
     private fun differentSupplies() : Stream<Arguments> {
         return Stream.of(
                 Arguments.of(
-                        listOf(Supply(1, 13, false)),
+                        listOf(Supply(1, 13, ACTIVE)),
                         13.0
                 ),
                 Arguments.of(
-                        listOf(Supply(2, 12, false), Supply(3, 13, false)),
+                        listOf(Supply(2, 12, ACTIVE), Supply(3, 13, ACTIVE)),
                         5.0
                 )
         )
