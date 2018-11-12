@@ -22,3 +22,7 @@ dependencies {
 
     testImplementation("junit:junit:4.12")
 }
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).all {
+    kotlinOptions { jvmTarget = "1.8" }
+}
