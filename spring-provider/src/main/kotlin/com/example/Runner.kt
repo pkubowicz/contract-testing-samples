@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.SupplyStatus.ACTIVE
 import com.example.SupplyStatus.CANCELED
 import com.google.gson.Gson
 import spark.ResponseTransformer
@@ -12,7 +13,11 @@ class Runner {
         val gson = Gson()
         val toJson = ResponseTransformer(gson::toJson)
 
-        val supplies = listOf(Supply(151, 10, CANCELED))
+        val supplies = listOf(
+                Supply(4, 10, ACTIVE),
+                Supply(151, 20, CANCELED)
+//                Supply(-1, -1, ACTIVE)
+        )
 
         Spark.port(port)
         Spark.get("supplies", Route { request, response ->

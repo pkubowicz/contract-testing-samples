@@ -1,5 +1,3 @@
-package contracts
-
 org.springframework.cloud.contract.spec.Contract.make {
     request {
         method 'GET'
@@ -15,8 +13,18 @@ org.springframework.cloud.contract.spec.Contract.make {
     response {
         status OK()
         body([
-               status: "CANCELED",
+                [
+                        status: "CANCELED",
+                ],
+                [
+                        count     : 4,
+                        totalWeight: 20,
+                        status    : "ACTIVE"
+                ],
         ])
+        bodyMatchers {
+            jsonPath('$', byCommand('checkSizeIs2($it)'))
+        }
         headers {
             contentType('application/json')
         }

@@ -3,7 +3,7 @@ org.springframework.cloud.contract.spec.Contract.make {
         method 'GET'
         url('/supplies') {
             queryParameters {
-                parameter day: 'abc'
+                parameter day: '2018-12-23'
             }
         }
         headers {
@@ -11,6 +11,14 @@ org.springframework.cloud.contract.spec.Contract.make {
         }
     }
     response {
-        status BAD_REQUEST()
+        status OK()
+        body([
+                [
+                        status: "CANCELED",
+                ]
+        ])
+        headers {
+            contentType('application/json')
+        }
     }
 }
