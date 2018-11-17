@@ -28,7 +28,7 @@ class StatesTest {
     }
 
     @Pact(consumer = "Planner")
-    fun oneSupply(builder: PactDslWithProvider): RequestResponsePact {
+    fun twoSupplies(builder: PactDslWithProvider): RequestResponsePact {
         return builder
                 .given("one canceled and one active supply")
                 .uponReceiving("request for a canceled supply")
@@ -51,7 +51,7 @@ class StatesTest {
     }
 
     @Test
-    @PactTestFor(pactMethod = "oneSupply")
+    @PactTestFor(pactMethod = "twoSupplies")
     fun testClient() {
         val received = client.getFor(LocalDate.of(2018, 12, 23))
         assertThat(received).hasSize(2)
@@ -64,7 +64,7 @@ class StatesTest {
     }
 
     @Test
-    @PactTestFor(pactMethod = "oneSupply")
+    @PactTestFor(pactMethod = "twoSupplies")
     fun testLogicAndClient() {
         val averageWeight = SuppliesAnalyser().countAverageItemWeight(
                 client.getFor(LocalDate.of(2018, 12, 23)))
