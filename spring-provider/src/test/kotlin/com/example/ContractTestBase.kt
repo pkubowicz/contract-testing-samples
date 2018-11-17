@@ -1,17 +1,24 @@
 package com.example
 
+import io.restassured.RestAssured
+import org.junit.After
 import org.junit.Before
-import org.springframework.boot.web.server.LocalServerPort
-
 
 
 open class ContractTestBase {
 
-    @LocalServerPort
-    var port: Int = 0
+    val port: Int = 9053
+
+    val runner = Runner()
 
     @Before
     fun startServer() {
-        // will start
+        runner.start(port)
+        RestAssured.port = this.port
+    }
+
+    @After
+    fun stopServer() {
+        runner.stop()
     }
 }

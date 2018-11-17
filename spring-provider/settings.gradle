@@ -1,1 +1,3 @@
 rootProject.name = 'spring-provider'
+
+enableFeaturePreview('IMPROVED_POM_SUPPORT')
