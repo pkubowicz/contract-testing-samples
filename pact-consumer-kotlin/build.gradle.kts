@@ -2,7 +2,7 @@ group = "com.example"
 version = "1.0.0-SNAPSHOT"
 
 plugins {
-    kotlin("jvm") version "1.3.0"
+    kotlin("jvm") version "1.3.10"
     id("org.jmailen.kotlinter") version "1.20.1"
     id("maven-publish")
 }

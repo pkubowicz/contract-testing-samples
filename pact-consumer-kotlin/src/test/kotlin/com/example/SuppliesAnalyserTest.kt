@@ -13,7 +13,7 @@ import java.util.stream.Stream
 class SuppliesAnalyserTest {
     private val analyser = SuppliesAnalyser()
 
-    private fun differentSupplies() : Stream<Arguments> {
+    private fun differentSupplies(): Stream<Arguments> {
         return Stream.of(
                 Arguments.of(
                         listOf(Supply(1, 13, ACTIVE)),
