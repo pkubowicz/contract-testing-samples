@@ -21,9 +21,6 @@ org.springframework.cloud.contract.spec.Contract.make {
                         status    : "ACTIVE"
                 ],
         ])
-        bodyMatchers {
-            jsonPath('$', byCommand('checkSizeIs2($it)'))
-        }
         headers {
             contentType('application/json')
         }
