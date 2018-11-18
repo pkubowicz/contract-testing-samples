@@ -8,9 +8,6 @@ org.springframework.cloud.contract.spec.Contract.make {
                 parameter day: '2018-12-23'
             }
         }
-        headers {
-            contentType('application/json')
-        }
     }
     response {
         status OK()

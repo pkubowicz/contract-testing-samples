@@ -6,9 +6,6 @@ org.springframework.cloud.contract.spec.Contract.make {
                 parameter day: 'abc'
             }
         }
-        headers {
-            contentType('application/json')
-        }
     }
     response {
         status BAD_REQUEST()
