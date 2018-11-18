@@ -7,11 +7,11 @@ import spark.Route
 import spark.Spark
 
 class Server {
+    var supplies = listOf(Supply(151, 10, CANCELED))
+
     fun start(port: Int) {
         val gson = Gson()
         val toJson = ResponseTransformer(gson::toJson)
-
-        val supplies = listOf(Supply(151, 10, CANCELED))
 
         Spark.port(port)
         Spark.get("supplies", Route { request, response ->
