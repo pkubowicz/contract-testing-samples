@@ -19,6 +19,8 @@ class SuppliesClientTest {
         var rule: StubRunnerRule = StubRunnerRule()
                 .downloadStub("com.example", "spring-provider")
                 .withPort(port)
+                .withStubPerConsumer(true)
+                .withConsumerName("manySupplies")
     }
 
     private lateinit var client: SuppliesClient
