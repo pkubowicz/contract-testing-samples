@@ -54,6 +54,7 @@ class StatesTest {
     @PactTestFor(pactMethod = "twoSupplies")
     fun testClient() {
         val received = client.getFor(LocalDate.of(2018, 12, 23))
+
         assertThat(received).hasSize(2)
         assertThat(received[0])
                 .hasFieldOrPropertyWithValue("status", CANCELED)
@@ -67,7 +68,8 @@ class StatesTest {
     @PactTestFor(pactMethod = "twoSupplies")
     fun testLogicAndClient() {
         val averageWeight = SuppliesAnalyser().countAverageItemWeight(
-                client.getFor(LocalDate.of(2018, 12, 23)))
+                client.getFor(LocalDate.of(2018, 12, 23))
+        )
         assertThat(averageWeight).isEqualTo(5.0)
     }
 }
