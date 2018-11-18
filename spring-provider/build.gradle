@@ -43,7 +43,7 @@ compileTestGroovy.dependsOn(compileTestKotlin)
 compileTestGroovy.classpath += files(compileTestKotlin.destinationDir)
 
 contracts {
-    baseClassForTests = 'com.example.ContractTestBase'
+    packageWithBaseClasses = 'com.example.contracts'
     testMode = 'EXPLICIT'
     assertJsonSize = true // sic! https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.0.2.RELEASE/multi/multi_contract-dsl.html#_limitations
 }
