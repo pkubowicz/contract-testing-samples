@@ -31,7 +31,7 @@ class StatesTest {
     fun twoSupplies(builder: PactDslWithProvider): RequestResponsePact {
         return builder
                 .given("one canceled and one active supply")
-                .uponReceiving("request for a canceled supply")
+                .uponReceiving("request for two supplies")
                 .path("/supplies")
                 .query("day=2018-12-23")
                 .method("GET")
