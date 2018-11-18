@@ -30,7 +30,9 @@ class SuppliesAnalyserTest {
 
     @Test
     fun countsZeroIfAllSuppliesAreCanceled() {
-        val result = analyser.countAverageItemWeight(client.getFor(LocalDate.of(2018, 12, 23)))
-        assertThat(result).isEqualTo(0.0)
+        val averageWeight = analyser.countAverageItemWeight(
+                client.getFor(LocalDate.of(2018, 12, 23))
+        )
+        assertThat(averageWeight).isEqualTo(0.0)
     }
 }

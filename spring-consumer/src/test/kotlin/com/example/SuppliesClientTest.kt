@@ -12,32 +12,31 @@ import java.time.LocalDate
 class SuppliesClientTest {
 
     companion object {
-        private const val port = 9052
-
         @ClassRule
         @JvmField
         var rule: StubRunnerRule = StubRunnerRule()
                 .downloadStub("com.example", "spring-provider")
-                .withPort(port)
-                .withStubPerConsumer(true)
-                .withConsumerName("manySupplies")
+                .withPort(9052)
+//                .withStubPerConsumer(true)
+//                .withConsumerName("manySupplies")
     }
 
     private lateinit var client: SuppliesClient
 
     @Before
     fun setUp() {
-        client = SuppliesClient("http://localhost:$port")
+        client = SuppliesClient("http://localhost:9052")
     }
 
     @Test
     fun canReadBothCanceledAndActiveSupplies() {
-        val supplies = client.getFor(LocalDate.of(2018, 12, 23))
-        assertThat(supplies)
+        val received = client.getFor(LocalDate.of(2018, 12, 23))
+
+        assertThat(received)
                 .hasSize(2)
-        assertThat(supplies[0])
+        assertThat(received[0])
                 .hasFieldOrPropertyWithValue("status", CANCELED)
-        assertThat(supplies[1])
+        assertThat(received[1])
                 .hasFieldOrPropertyWithValue("count", 4)
                 .hasFieldOrPropertyWithValue("status", ACTIVE)
                 .hasFieldOrPropertyWithValue("totalWeight", 20)
