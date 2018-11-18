@@ -17,7 +17,10 @@ org.springframework.cloud.contract.spec.Contract.make {
                 ]
         ])
         bodyMatchers {
-            jsonPath('$', byCommand('checkSizeIs1($it)'))
+            jsonPath('$', byType {
+                minOccurrence(1)
+                maxOccurrence(1)
+            })
         }
         headers {
             contentType('application/json')

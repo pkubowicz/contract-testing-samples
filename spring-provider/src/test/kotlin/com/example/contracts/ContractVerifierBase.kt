@@ -26,12 +26,4 @@ abstract class ContractVerifierBase {
     }
 
     protected open fun configure(server: Server) {}
-
-    protected fun checkSizeIs1(list: List<Any>) {
-        checkSizeIs(list, 1)
-    }
-
-    private fun checkSizeIs(list: List<Any>, expectedSize: Int) {
-        assertThat(list).hasSize(expectedSize)
-    }
 }
