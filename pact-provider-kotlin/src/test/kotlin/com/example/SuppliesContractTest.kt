@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 @PactUrl(urls = arrayOf("classpath:pact/Planner-Supplies.json"))
 class SuppliesContractTest {
 
-    private val runner = Runner()
+    private val server = Server()
 
     @TestTarget
     @JvmField
@@ -23,11 +23,11 @@ class SuppliesContractTest {
 
     @Before
     fun setUp() {
-        runner.start(9052)
+        server.start(9052)
     }
 
     @After
     fun tearDown() {
-        runner.stop()
+        server.stop()
     }
 }
