@@ -33,7 +33,7 @@ org.springframework.cloud.contract.spec.Contract.make {
 
 //bodyMatchers {
 //    jsonPath('$', byType {
-//        minOccurrence(1)
-//        maxOccurrence(1)
+//        minOccurrence(2)
+//        maxOccurrence(2)
 //    })
 //}
