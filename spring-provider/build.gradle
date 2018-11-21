@@ -31,6 +31,7 @@ dependencyManagement {
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation("com.sparkjava:spark-core:2.8.0")
 
     implementation("com.google.code.gson:gson:2.8.5")
@@ -42,7 +43,6 @@ dependencies {
         exclude group: 'ch.qos.logback'
         exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
     }
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {

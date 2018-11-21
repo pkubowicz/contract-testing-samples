@@ -9,7 +9,10 @@ repositories {
 }
 
 dependencies {
-    api(kotlin("stdlib"))
+    api(kotlin("stdlib-jdk8"))
+    constraints {
+        implementation(kotlin("reflect"))
+    }
 
     implementation("com.sparkjava:spark-core:2.8.0")
 

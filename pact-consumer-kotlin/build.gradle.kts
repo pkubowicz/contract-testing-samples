@@ -12,12 +12,15 @@ repositories {
 }
 
 dependencies {
-    api(kotlin("stdlib"))
+    api(kotlin("stdlib-jdk8"))
+    constraints {
+        implementation(kotlin("reflect"))
+    }
 
     implementation("org.apache.httpcomponents:fluent-hc:4.5.6")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.9.7")
     implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.7")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
 
     testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.5.24")
     testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.5.24")
