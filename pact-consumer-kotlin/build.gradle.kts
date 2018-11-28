@@ -12,9 +12,9 @@ repositories {
 }
 
 dependencies {
-    api(kotlin("stdlib-jdk8"))
+    api(kotlin("stdlib-jdk8", "1.3.10"))
     constraints {
-        implementation(kotlin("reflect"))
+        implementation(kotlin("reflect", "1.3.10"))
     }
 
     implementation("org.apache.httpcomponents:fluent-hc:4.5.6")
@@ -25,9 +25,9 @@ dependencies {
     testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.5.24")
     testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.5.24")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.3.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.3.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
 
     testImplementation("org.assertj:assertj-core:3.11.1")
 
