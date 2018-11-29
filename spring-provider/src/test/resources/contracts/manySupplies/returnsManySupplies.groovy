@@ -12,14 +12,8 @@ org.springframework.cloud.contract.spec.Contract.make {
     response {
         status OK()
         body([
-                [
-                        status: "CANCELED",
-                ],
-                [
-                        count     : 4,
-                        totalWeight: 20,
-                        status    : "ACTIVE"
-                ],
+                [status: "CANCELED"],
+                [count: 4, totalWeight: 20, status: "ACTIVE"],
         ])
         headers {
             contentType('application/json')

@@ -12,9 +12,7 @@ org.springframework.cloud.contract.spec.Contract.make {
     response {
         status OK()
         body([
-                [
-                        status: "CANCELED",
-                ]
+                [status: "CANCELED"]
         ])
         headers {
             contentType('application/json')
