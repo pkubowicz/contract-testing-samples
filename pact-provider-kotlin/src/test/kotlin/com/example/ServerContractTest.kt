@@ -13,7 +13,7 @@ import org.junit.runner.RunWith
 @RunWith(PactRunner::class)
 @Provider("Supplies")
 @PactUrl(urls = ["classpath:pact/Planner-Supplies.json"])
-class SuppliesContractTest {
+class ServerContractTest {
 
     private val server = Server()
 

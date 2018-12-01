@@ -15,7 +15,7 @@ import java.time.LocalDate
 
 @ExtendWith(PactConsumerTestExt::class)
 @PactTestFor(providerName = "Supplies", port = "9051")
-class SuppliesContractTest {
+class ClientContractTest {
     private val baseUrl = "http://localhost:9051"
 
     private lateinit var client: SuppliesClient
