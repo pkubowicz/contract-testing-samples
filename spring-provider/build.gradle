@@ -44,6 +44,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
     }
 }
 
+// I don't use Groovy and generated tests are in Java, but Spring Cloud Contract forces me to add this
 compileTestGroovy.dependsOn(compileTestKotlin)
 compileTestGroovy.classpath += files(compileTestKotlin.destinationDir)
 
