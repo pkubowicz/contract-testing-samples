@@ -18,7 +18,6 @@ class ServerContractTest {
     private val server = Server()
 
     @TestTarget
-    @JvmField
     val target: Target = HttpTarget(port = 9052)
 
     @Before

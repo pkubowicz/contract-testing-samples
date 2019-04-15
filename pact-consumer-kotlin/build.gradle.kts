@@ -3,7 +3,7 @@ version = "1.0.0-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.3.21"
-    id("org.jmailen.kotlinter") version "1.23.0"
+    id("org.jmailen.kotlinter") version "1.23.1"
     id("maven-publish")
 }
 
@@ -22,8 +22,8 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
 
-    testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.6.3")
-    testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.6.3")
+    testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.6.4")
+    testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.6.4")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.1")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.1")
