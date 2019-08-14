@@ -2,10 +2,8 @@ package com.example.contracts
 
 import com.example.Server
 import io.restassured.RestAssured
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.After
 import org.junit.Before
-
 
 abstract class ContractVerifierBase {
 
