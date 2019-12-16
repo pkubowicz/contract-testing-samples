@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-system("cat pact-consumer/build/pact/Planner-Supplies.json| curl -v -XPUT -H 'Content-Type: application/json' --data \@- http://localhost:80/pacts/provider/Supplies/consumer/Planner/version/1.0.2");
+system("cat pact-consumer-kotlin/build/pact/Planner-Supplies.json| curl -v -XPUT -H 'Content-Type: application/json' --data \@- http://localhost:9292/pacts/provider/Supplies/consumer/Planner/version/1.0.2");
 
 my @other = (
   [Orders => Delivery],
@@ -12,7 +12,7 @@ my @other = (
 foreach my $arr (@other) {
   my ($consumer, $provider) = @{$arr};
   print "$consumer => $provider\n";
-  system("sed -e 's/Planner/$consumer/' -e 's/Supplies/$provider/' pact-consumer/build/pact/Planner-Supplies.json| curl -v -XPUT -H 'Content-Type: application/json' --data \@- http://localhost:80/pacts/provider/$provider/consumer/$consumer/version/1.0.0");
+  system("sed -e 's/Planner/$consumer/' -e 's/Supplies/$provider/' pact-consumer-kotlin/build/pact/Planner-Supplies.json| curl -v -XPUT -H 'Content-Type: application/json' --data \@- http://localhost:9292/pacts/provider/$provider/consumer/$consumer/version/1.0.0");
   sleep 60;
 }
 
