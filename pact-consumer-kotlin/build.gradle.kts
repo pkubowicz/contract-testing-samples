@@ -2,7 +2,7 @@ group = "com.example"
 version = "1.0.0-SNAPSHOT"
 
 plugins {
-    kotlin("jvm") version "1.3.41"
+    kotlin("jvm") version "1.3.61"
     id("org.jmailen.kotlinter") version "1.26.0"
     id("maven-publish")
 }
@@ -12,26 +12,24 @@ repositories {
 }
 
 dependencies {
-    api(kotlin("stdlib-jdk8", "1.3.41"))
-    constraints {
-        implementation(kotlin("reflect", "1.3.41"))
-    }
+    api(platform("org.jetbrains.kotlin:kotlin-bom"))
+    api(kotlin("stdlib-jdk8"))
 
-    implementation("org.apache.httpcomponents:fluent-hc:4.5.9")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.9.3")
-    implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.9")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.9")
+    implementation("org.apache.httpcomponents:fluent-hc:4.5.10")
+    implementation(platform("com.fasterxml.jackson:jackson-bom:2.10.1"))
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    testImplementation("au.com.dius:pact-jvm-consumer-java8_2.12:3.6.12")
-    testImplementation("au.com.dius:pact-jvm-consumer-junit5_2.12:3.6.12")
+    testImplementation("au.com.dius:pact-jvm-consumer-java8:4.0.3")
+    testImplementation("au.com.dius:pact-jvm-consumer-junit5:4.0.3")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.5.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.5.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
 
-    testImplementation("org.assertj:assertj-core:3.13.2")
+    testImplementation("org.assertj:assertj-core:3.14.0")
 
-    testRuntimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.12.1")
+    testRuntimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.13.0")
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).all {

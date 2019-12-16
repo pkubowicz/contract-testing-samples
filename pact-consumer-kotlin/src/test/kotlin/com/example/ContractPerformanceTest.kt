@@ -1,10 +1,10 @@
 package com.example
 
-import au.com.dius.pact.consumer.Pact
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt
 import au.com.dius.pact.consumer.junit5.PactTestFor
-import au.com.dius.pact.model.RequestResponsePact
+import au.com.dius.pact.core.model.RequestResponsePact
+import au.com.dius.pact.core.model.annotations.Pact
 import com.example.pact.newObject
 import io.pactfoundation.consumer.dsl.LambdaDsl.newJsonArray
 import org.junit.jupiter.api.BeforeEach
