@@ -1,5 +1,5 @@
 buildscript {
-    ext.springCloudContractVersion = '2.2.0.RELEASE'
+    ext.springCloudContractVersion = '2.2.1.RELEASE'
 
     repositories {
         mavenCentral()
@@ -48,5 +48,5 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
 contracts {
     packageWithBaseClasses = 'com.example.contracts'
     testMode = 'EXPLICIT'
-    assertJsonSize = true // sic! https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.2.0.RELEASE/reference/htmlsingle/#contract-limitations
+    assertJsonSize = true // sic! https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.2.1.RELEASE/reference/htmlsingle/#contract-limitations
 }
